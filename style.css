@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');*/
+
+:root {
+    --bg-color:
+        /*#1a1a1a*/
+        #000000;
+    --text-title:
+        /*#f0f0f0*/
+        #e3e2e2;
+    --text-main:
+        /*#808080*/
+        #646464;
+    --text-muted:
+        /*#424242*/
+        #424242;
+    --font-xl: 4rem;
+    --font-large: 1.5rem;
+    --font-base: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-title);
+}
+
+.container {
+    /*border-bottom: 1px solid red;*/
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section {
+    padding: 2rem;
+    width: 144vh;
+    height: 90vh;
+    background-color: #1a1a1a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Vesper Libre", serif;
+    font-weight: 400;
+    font-style: bold;
+    font-size: var(--font-xl);
+}
+
+.blob {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    filter: blur(20rem);
+    opacity: 0;
+    animation: fadeIn 6s ease forwards;
+    /*, breathe 12s ease-in-out infinite;*/
+    mix-blend-mode: screen;
+}
+
+/* white */
+.blob1 {
+    background: radial-gradient(circle, #ffc4c41f, transparent 90%);
+    top: 5%;
+    left: 30%;
+    animation-delay: 1s;
+}
+
+/* purple */
+.blob2 {
+    background: radial-gradient(circle, #a955f727, transparent 90%);
+    bottom: 10%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+/* blue */
+.blob3 {
+    background: radial-gradient(circle, #60a5fa2d, transparent 90%);
+    right: 15%;
+    top: 30%;
+    animation-delay: 2.5s;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: translateY(-30px);
+        transform: scale(1.1);
+    }
+}
+
+#name-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#name {
+    font-family: "Vesper Libre", serif;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 6rem;
+    text-shadow: 3px 1px 6px #4d4d4d;
+}
+
+.name-letter {
+    display: inline-block;
+    opacity: 0;
+}
+
+.name-letter-fade-in {
+    opacity: 0.5;
+    transform: translateY(-5px);
+
+    animation-delay: 0.5s;
+    animation: fadeIn 0.2s ease-in forwards;
+}
+
+#name-subtitle {
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-size: var(--font-large);
+    color: var(--text-main);
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s;
+}
+
+#nav-buttons {
+    transition: all 1s ease;
+    position: absolute;
+    bottom: 0;
+
+    width: 100vw;
+    height: 7vh;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-button {
+    transition: all 0.3s ease-in-out;
+
+    display: inline-block;
+
+    font-size: var(--font-large);
+    color: var(--text-muted);
+    /*background-color: var(--bg-color);*/
+
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.nav-button:hover {
+    background-color: #a8a8a81e;
+    color: var(--text-main);
+
+    /*box-shadow: inset 0rem 0.2rem 0.2rem 0rem #1e1e1e;*/
+    translate: 0 -0.2rem;
+}
+
+#about {
+    font-size: var(--font-large);
+}
+
+#projects {
+    font-size: var(--font-large);
+}
+
+#contact {
+    margin: auto;
+    font-size: var(--font-large);
+}
+
+/*#contact-table {
+    width: 100%;
+}*/
+
+/*#contact-table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}*/
+
+/*#contact-table tr td {
+    width: 50%;
+}*/
+
+.td-right {
+    text-align: right;
+    padding-right: 0.5rem;
+}
+
+.td-left {
+    text-align: left;
+    padding-left: 0.5rem;
+}
+
+#contact-table tr td a {
+    color: var(--text-title);
+    text-decoration: none;
+}
+
+#contact-table tr td a:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+footer {
+    margin-bottom: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+    /*height: 7vh;*/
+}
