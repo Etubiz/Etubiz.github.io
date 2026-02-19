@@ -31,17 +31,46 @@ let timer = setInterval(() => {
 }, 100);
 
 
-
 // Colored blob movement
 const blobs = document.querySelectorAll(".blob");
 
-document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / (window.innerWidth - 0.5)) * 128;
-    const y = (event.clientY / (window.innerHeight - 0.5)) * 128;
+let xTarget = 0;
+let yTarget = 0;
+const blobPositions = [];
 
-    blobs.forEach((blob, index) => {
-        const speedScale = (index + 1) * 0.2;
-        blob.style.transform = `translate(${x * speedScale}px, ${y * speedScale}px)`;
-        console.log(blob.style.transform);
-    });
+blobs.forEach((blob, index) => {
+    blobPositions[index] = { x: 0, y: 0 };
 });
+
+document.addEventListener("mousemove", (event) => {
+    xTarget = (event.clientX / window.innerWidth) * 256;
+    yTarget = (event.clientY / window.innerHeight) * 256;
+});
+
+function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+}
+
+function animate() {
+    blobs.forEach((blob, index) => {
+        const speedScale = index * 0.2;
+
+        blobPositions[index].x = lerp(
+            blobPositions[index].x,
+            xTarget * speedScale,
+            0.05
+        );
+
+        blobPositions[index].y = lerp(
+            blobPositions[index].y,
+            yTarget * speedScale,
+            0.05
+        );
+
+        blob.style.transform = `translate(${blobPositions[index].x}px, ${blobPositions[index].y}px)`;
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();

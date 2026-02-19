@@ -5,6 +5,9 @@
     --bg-color:
         /*#1a1a1a*/
         #000000;
+    --card-color:
+        #131313;
+
     --text-title:
         /*#f0f0f0*/
         #e3e2e2;
@@ -34,7 +37,8 @@ body {
     /*border-bottom: 1px solid red;*/
     width: 100vw;
     height: 100vh;
-    align-items: center;
+    padding: 2rem;
+    margin: 0;
 
     display: flex;
     flex-direction: column;
@@ -45,13 +49,14 @@ body {
 
 .section {
     padding: 2rem;
-    width: 144vh;
-    height: 90vh;
-    background-color: #1a1a1a;
+    background-color: var(--card-color);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
 
-    display: flex;
+    width: 60%;
+
+    /*display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;*/
     align-items: center;
     text-align: center;
 }
@@ -68,7 +73,7 @@ h2 {
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
-    filter: blur(20rem);
+    filter: blur(5rem);
     opacity: 0;
     animation: fadeIn 6s ease forwards;
     /*, breathe 12s ease-in-out infinite;*/
@@ -77,15 +82,15 @@ h2 {
 
 /* white */
 .blob1 {
-    background: radial-gradient(circle, #ffc4c41f, transparent 90%);
+    background: radial-gradient(circle, #ffc4c430, transparent 90%);
     top: 5%;
-    left: 30%;
+    left: 25%;
     animation-delay: 1s;
 }
 
 /* purple */
 .blob2 {
-    background: radial-gradient(circle, #a955f727, transparent 90%);
+    background: radial-gradient(circle, #a955f73a, transparent 90%);
     bottom: 10%;
     left: 10%;
     animation-delay: 2s;
@@ -93,22 +98,26 @@ h2 {
 
 /* blue */
 .blob3 {
-    background: radial-gradient(circle, #60a5fa2d, transparent 90%);
-    right: 15%;
+    background: radial-gradient(circle, #60a5fa40, transparent 90%);
+    right: 20%;
     top: 30%;
     animation-delay: 2.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes breathe {
 
     0%,
     100% {
-        transform: translateY(0px);
         transform: scale(0.9);
     }
 
     50% {
-        transform: translateY(-30px);
         transform: scale(1.1);
     }
 }
@@ -137,7 +146,7 @@ h2 {
     transform: translateY(-5px);
 
     animation-delay: 0.5s;
-    animation: fadeIn 0.2s ease-in forwards;
+    animation: fadeInBottom 0.2s ease-in forwards;
 }
 
 #name-subtitle {
@@ -148,7 +157,7 @@ h2 {
 
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 2s ease forwards;
+    animation: fadeInBottom 2s ease forwards;
     animation-delay: 2s;
 }
 
@@ -162,11 +171,11 @@ h2 {
 
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 3s ease forwards;
+    animation: fadeInBottom 3s ease forwards;
     animation-delay: 2s;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInBottom {
     to {
         opacity: 1;
         transform: translateY(0);
