@@ -32,7 +32,7 @@ let timer = setInterval(() => {
 
 
 // Colored blob movement
-const blobs = document.querySelectorAll(".blob");
+/*const blobs = document.querySelectorAll(".blob");
 
 let xTarget = 0;
 let yTarget = 0;
@@ -73,4 +73,4 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-animate();
+animate();*/

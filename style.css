@@ -1,22 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');
 /*@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');*/
 
-:root {
-    --bg-color:
-        /*#1a1a1a*/
-        #000000;
-    --card-color:
-        #131313;
+/* White */
+/*:root {
+    --bg-color: #ffffff;
+    --card-color: #f0f0f0;
+    --text-title: #000000;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --font-xl: 4rem;
+    --font-large: 1.5rem;
+    --font-base: 1rem;
+}*/
 
-    --text-title:
-        /*#f0f0f0*/
-        #e3e2e2;
-    --text-main:
-        /*#808080*/
-        #646464;
-    --text-muted:
-        /*#424242*/
-        #424242;
+/* Black */
+/*:root {
+    --bg-color: #000000;
+    --card-color: #131313;
+    --text-title: #e3e2e2;
+    --text-main: #646464;
+    --text-muted: #424242;
+    --font-xl: 4rem;
+    --font-large: 1.5rem;
+    --font-base: 1rem;
+}*/
+
+
+/* Gray */
+:root {
+    --bg-color: #1a1a1a;
+    --card-color:
+        /*#131313;*/
+        #1a1a1a;
+    --text-title: #f0f0f0;
+    --text-main: #808080;
+    --text-muted: #424242;
     --font-xl: 4rem;
     --font-large: 1.5rem;
     --font-base: 1rem;
@@ -31,13 +49,21 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-title);
+    /*overflow-x: hidden;*/
+    overflow-y: scroll;
 }
 
-.container {
+.ss-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+section {
     /*border-bottom: 1px solid red;*/
     width: 100vw;
     height: 100vh;
-    padding: 2rem;
+    padding: 0;
     margin: 0;
 
     display: flex;
@@ -45,18 +71,15 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
-.section {
+.container {
     padding: 2rem;
     background-color: var(--card-color);
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
 
-    width: 60%;
-
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;*/
     align-items: center;
     text-align: center;
 }
@@ -68,22 +91,25 @@ h2 {
     font-size: var(--font-xl);
 }
 
+#title {
+    background-color: #000000;
+}
+
 .blob {
-    position: absolute;
+    position: relative;
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
     filter: blur(5rem);
     opacity: 0;
     animation: fadeIn 6s ease forwards;
-    /*, breathe 12s ease-in-out infinite;*/
     mix-blend-mode: screen;
 }
 
 /* white */
 .blob1 {
     background: radial-gradient(circle, #ffc4c430, transparent 90%);
-    top: 5%;
+    top: 5vh;
     left: 25%;
     animation-delay: 1s;
 }
@@ -91,7 +117,7 @@ h2 {
 /* purple */
 .blob2 {
     background: radial-gradient(circle, #a955f73a, transparent 90%);
-    bottom: 10%;
+    top: 40vh;
     left: 10%;
     animation-delay: 2s;
 }
@@ -99,8 +125,8 @@ h2 {
 /* blue */
 .blob3 {
     background: radial-gradient(circle, #60a5fa40, transparent 90%);
+    top: 30vh;
     right: 20%;
-    top: 30%;
     animation-delay: 2.5s;
 }
 
@@ -110,22 +136,14 @@ h2 {
     }
 }
 
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: scale(0.9);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
-}
-
 #name-container {
-    justify-content: center;
+    border: 1px solid red;
+    /*justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;*/
+
+    margin: auto;
+    padding: 3vw;
 }
 
 #name {
@@ -133,7 +151,7 @@ h2 {
     font-weight: 400;
     font-style: bold;
     font-size: 6rem;
-    text-shadow: 3px 1px 6px #4d4d4d;
+    text-shadow: 3px 1px 6px #2d2d2d;
 }
 
 .name-letter {
@@ -163,11 +181,11 @@ h2 {
 
 #nav-buttons {
     transition: all 1s ease;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: 2rem;
 
     width: 100vw;
-    height: 7vh;
+    height: 10vh;
 
     opacity: 0;
     transform: translateY(20px);
@@ -214,23 +232,8 @@ h2 {
 }
 
 #contact {
-    margin: auto;
     font-size: var(--font-large);
 }
-
-/*#contact-table {
-    width: 100%;
-}*/
-
-/*#contact-table tr {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}*/
-
-/*#contact-table tr td {
-    width: 50%;
-}*/
 
 .td-right {
     text-align: right;
@@ -254,8 +257,8 @@ h2 {
 
 footer {
     margin-bottom: 1rem;
-    position: relative;
-    bottom: 0;
-    width: 100vw;
+    /*position: relative;
+    bottom: 0;*/
+    width: 100%;
     /*height: 7vh;*/
 }
