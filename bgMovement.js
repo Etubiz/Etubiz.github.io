@@ -1,6 +1,6 @@
 
 // Name fade in
-const nameFade = document.querySelector("#name");
+const nameFade = document.querySelector("#name-animated");
 const nameFadeText = nameFade.innerText.split("");
 let additionalTextLength = 0;
 nameFade.textContent = "";

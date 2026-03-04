@@ -25,7 +25,6 @@
     --font-base: 1rem;
 }*/
 
-
 /* Gray */
 :root {
     --bg-color: #1a1a1a;
@@ -35,9 +34,18 @@
     --text-title: #f0f0f0;
     --text-main: #808080;
     --text-muted: #424242;
+
     --font-xl: 4rem;
-    --font-large: 1.5rem;
+    --font-large: 1.2rem;
     --font-base: 1rem;
+}
+
+@media (max-width: 720px) {
+    :root {
+        --font-xl: 3rem;
+        --font-large: 1rem;
+        --font-base: 0.6rem;
+    }
 }
 
 * {
@@ -49,28 +57,30 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-title);
-    /*overflow-x: hidden;*/
-    overflow-y: scroll;
 }
 
 .ss-container {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+
+    overflow-x: hidden;
 }
 
 section {
     /*border-bottom: 1px solid red;*/
     width: 100vw;
     height: 100vh;
-    padding: 0;
+    /*padding: 2rem;*/
     margin: 0;
 
-    display: flex;
+    /*display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;*/
+
+    position: relative;
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -80,23 +90,36 @@ section {
     padding: 2rem;
     background-color: var(--card-color);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     align-items: center;
     text-align: center;
 }
 
 h2 {
     font-family: "Vesper Libre", serif;
-    font-weight: 400;
+    font-weight: 200;
     font-style: bold;
     font-size: var(--font-xl);
 }
 
 #title {
-    background-color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5rem;
 }
 
 .blob {
-    position: relative;
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+
     width: 40rem;
     height: 40rem;
     border-radius: 50%;
@@ -109,48 +132,60 @@ h2 {
 /* white */
 .blob1 {
     background: radial-gradient(circle, #ffc4c430, transparent 90%);
-    top: 5vh;
-    left: 25%;
+    /*top: 5vh;
+    left: 25%;*/
+    translate: -20vw -10vh;
     animation-delay: 1s;
 }
 
 /* purple */
 .blob2 {
     background: radial-gradient(circle, #a955f73a, transparent 90%);
-    top: 40vh;
-    left: 10%;
+    /*top: 40vh;
+    left: 10%;*/
+    translate: -10vw -30vh;
     animation-delay: 2s;
 }
 
 /* blue */
 .blob3 {
     background: radial-gradient(circle, #60a5fa40, transparent 90%);
-    top: 30vh;
-    right: 20%;
+    /*top: 30vh;
+    right: 20%;*/
+    translate: 10vw 15vh;
     animation-delay: 2.5s;
 }
 
 @keyframes fadeIn {
     to {
-        opacity: 1;
+        opacity: 0;
     }
 }
 
 #name-container {
-    border: 1px solid red;
-    /*justify-content: center;
-    align-items: center;
-    text-align: center;*/
-
-    margin: auto;
-    padding: 3vw;
+    margin-left: 10vw;
+    text-align: left;
 }
 
-#name {
+#name-animated {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+
     font-family: "Vesper Libre", serif;
     font-weight: 400;
     font-style: bold;
     font-size: 6rem;
+    text-shadow: 3px 1px 6px #2d2d2d;
+}
+
+#name-static {
+    display: inline-block;
+
+    font-family: "Vesper Libre", serif;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 5rem;
     text-shadow: 3px 1px 6px #2d2d2d;
 }
 
@@ -163,37 +198,51 @@ h2 {
     opacity: 0.5;
     transform: translateY(-5px);
 
-    animation-delay: 0.5s;
-    animation: fadeInBottom 0.2s ease-in forwards;
+    /* FIX THIS TO ENABLE ANIMATION */
+    opacity: 0;
+    /*animation-delay: 0.5s;
+    animation: SlideIn 0.2s ease-in forwards;*/
 }
 
 #name-subtitle {
-    font-family: "Nanum Gothic Coding", monospace;
+    /*font-family: "Nanum Gothic Coding", monospace;*/
+    font-family: "Nanum Gothic";
     font-weight: 400;
     font-size: var(--font-large);
     color: var(--text-main);
 
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInBottom 2s ease forwards;
+    transform: translateX(10px);
+    animation: SlideIn 0.3s ease-in forwards;
     animation-delay: 2s;
+}
+
+#profile-pic {
+    display: inline-block;
+    margin-right: 10vw;
+
+    width: 30vw;
+    height: auto;
+
+    box-shadow: 0px 0px 20px 5px #0000001a;
 }
 
 #nav-buttons {
-    transition: all 1s ease;
-    position: relative;
-    bottom: 2rem;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    bottom: 1rem;
 
     width: 100vw;
-    height: 10vh;
+
+    text-align: center;
 
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInBottom 3s ease forwards;
+    animation: SlideIn 3s ease forwards;
     animation-delay: 2s;
 }
 
-@keyframes fadeInBottom {
+@keyframes SlideIn {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -256,9 +305,24 @@ h2 {
 }
 
 footer {
-    margin-bottom: 1rem;
-    /*position: relative;
-    bottom: 0;*/
+    position: absolute;
+    bottom: 1rem;
+    /*width: 100%;*/
+    color: var(--text-muted);
+}
+
+#footer-left {
+    text-align: left;
+    left: 2rem;
+}
+
+#footer-center {
     width: 100%;
-    /*height: 7vh;*/
+    text-align: center;
+    margin: 0 auto;
+}
+
+#footer-right {
+    text-align: right;
+    right: 2rem;
 }
