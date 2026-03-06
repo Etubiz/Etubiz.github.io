@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');*/
 
 /* White */
 /*:root {
@@ -28,9 +27,7 @@
 /* Gray */
 :root {
     --bg-color: #1a1a1a;
-    --card-color:
-        /*#131313;*/
-        #1a1a1a;
+    --card-color: #1a1a1a;
     --text-title: #f0f0f0;
     --text-main: #808080;
     --text-muted: #424242;
@@ -40,7 +37,7 @@
     --font-base: 1rem;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1000px) {
     :root {
         --font-xl: 3rem;
         --font-large: 1rem;
@@ -71,7 +68,6 @@ section {
     /*border-bottom: 1px solid red;*/
     width: 100vw;
     height: 100vh;
-    /*padding: 2rem;*/
     margin: 0;
 
     /*display: flex;
@@ -115,47 +111,6 @@ h2 {
     gap: 5rem;
 }
 
-.blob {
-    position: absolute;
-    top: 10vh;
-    left: 50vw;
-
-    width: 40rem;
-    height: 40rem;
-    border-radius: 50%;
-    filter: blur(5rem);
-    opacity: 0;
-    animation: fadeIn 6s ease forwards;
-    mix-blend-mode: screen;
-}
-
-/* white */
-.blob1 {
-    background: radial-gradient(circle, #ffc4c430, transparent 90%);
-    /*top: 5vh;
-    left: 25%;*/
-    translate: -20vw -10vh;
-    animation-delay: 1s;
-}
-
-/* purple */
-.blob2 {
-    background: radial-gradient(circle, #a955f73a, transparent 90%);
-    /*top: 40vh;
-    left: 10%;*/
-    translate: -10vw -30vh;
-    animation-delay: 2s;
-}
-
-/* blue */
-.blob3 {
-    background: radial-gradient(circle, #60a5fa40, transparent 90%);
-    /*top: 30vh;
-    right: 20%;*/
-    translate: 10vw 15vh;
-    animation-delay: 2.5s;
-}
-
 @keyframes fadeIn {
     to {
         opacity: 0;
@@ -181,6 +136,7 @@ h2 {
 
 #name-static {
     display: inline-block;
+    margin: 0 0 -2rem 0;
 
     font-family: "Vesper Libre", serif;
     font-weight: 400;
@@ -206,7 +162,7 @@ h2 {
 
 #name-subtitle {
     /*font-family: "Nanum Gothic Coding", monospace;*/
-    font-family: "Nanum Gothic";
+    font-family: "Nanum Gothic", sans-serif;
     font-weight: 400;
     font-size: var(--font-large);
     color: var(--text-main);
@@ -221,25 +177,46 @@ h2 {
     display: inline-block;
     margin-right: 10vw;
 
-    width: 30vw;
+    max-width: 25vw;
+    width: 40vh;
     height: auto;
 
     box-shadow: 0px 0px 20px 5px #0000001a;
 }
 
-#nav-buttons {
-    transition: all 0.5s ease-in;
-    position: absolute;
-    bottom: 1rem;
+.nav-link {
+    color: var(--text-main);
+    font-weight: bold;
+}
 
-    width: 100vw;
+.nav-link:hover {
+    color: var(--text-title);
+}
 
-    text-align: center;
+.social-button-contaier {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    opacity: 0;
-    transform: translateY(20px);
-    animation: SlideIn 3s ease forwards;
-    animation-delay: 2s;
+    gap: 2rem;
+}
+
+.social-button {
+    width: 2rem;
+    height: 2rem;
+
+    border: 3px solid var(--text-title);
+    border-radius: 40%;
+    background-color: var(--text-title);
+}
+
+.social-button svg {
+    width: 80%;
+    height: 80%;
+
+    fill: var(--bg-color);
+    color: var(--bg-color);
 }
 
 @keyframes SlideIn {
@@ -247,33 +224,6 @@ h2 {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.nav-button {
-    transition: all 0.3s ease-in-out;
-
-    display: inline-block;
-
-    font-size: var(--font-large);
-    color: var(--text-muted);
-    /*background-color: var(--bg-color);*/
-
-    text-decoration: none;
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-}
-
-.nav-button:hover {
-    background-color: #a8a8a81e;
-    color: var(--text-main);
-
-    /*box-shadow: inset 0rem 0.2rem 0.2rem 0rem #1e1e1e;*/
-    translate: 0 -0.2rem;
-}
-
-#about {
-    font-size: var(--font-large);
 }
 
 #projects {
