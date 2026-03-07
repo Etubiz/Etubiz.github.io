@@ -1,3 +1,5 @@
+
+// PAGE SCROLL SNAP
 const scrollContainer = document.querySelector(".ss-container");
 
 function toggleActive(event, shouldActivate) {
@@ -15,3 +17,17 @@ scrollContainer.addEventListener("scrollsnapchanging", (e) => {
 scrollContainer.addEventListener("scrollsnapchange", (e) => {
     toggleActive(e, true);
 });
+
+
+// CAROUSEL SCROLL SNAP
+const carousel = document.getElementById("carousel");
+
+const cardWidth = 360 + 2 * 32; // card width + margin
+
+document.getElementById("carousel-btn-right").onclick = () => {
+    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+};
+
+document.getElementById("carousel-btn-left").onclick = () => {
+    carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+};

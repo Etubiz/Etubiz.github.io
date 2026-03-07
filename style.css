@@ -37,7 +37,7 @@
     --font-base: 1rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 600px) {
     :root {
         --font-xl: 3rem;
         --font-large: 1rem;
@@ -61,11 +61,11 @@ body {
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 section {
-    /*border-bottom: 1px solid red;*/
+    /*border: 1px solid red;*/
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -80,6 +80,8 @@ section {
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
+
+    overflow-x: hidden;
 }
 
 .container {
@@ -89,8 +91,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
     align-items: center;
     text-align: center;
 }
@@ -141,7 +141,7 @@ h2 {
     font-family: "Vesper Libre", serif;
     font-weight: 400;
     font-style: bold;
-    font-size: 5rem;
+    font-size: clamp(2rem, 6vw, 6rem);
     text-shadow: 3px 1px 6px #2d2d2d;
 }
 
@@ -161,16 +161,19 @@ h2 {
 }
 
 #name-subtitle {
-    /*font-family: "Nanum Gothic Coding", monospace;*/
     font-family: "Nanum Gothic", sans-serif;
     font-weight: 400;
-    font-size: var(--font-large);
+    font-size: clamp(0.7rem, 1.6vw, 1.4rem);
     color: var(--text-main);
+
+    margin-bottom: 2rem;
+    max-width: clamp(10rem, 40vw, 50vw);
+    width: 100%;
 
     opacity: 0;
     transform: translateX(10px);
     animation: SlideIn 0.3s ease-in forwards;
-    animation-delay: 2s;
+    /*animation-delay: 2s;*/
 }
 
 #profile-pic {
@@ -184,6 +187,12 @@ h2 {
     box-shadow: 0px 0px 20px 5px #0000001a;
 }
 
+@media (orientation: portrait) {
+    #profile-pic {
+        display: none;
+    }
+}
+
 .nav-link {
     color: var(--text-main);
     font-weight: bold;
@@ -193,30 +202,51 @@ h2 {
     color: var(--text-title);
 }
 
-.social-button-contaier {
+#social-button-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .social-button {
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    rotate: 0deg;
 
-    border: 3px solid var(--text-title);
+    border: 3px solid var(--text-main);
     border-radius: 40%;
-    background-color: var(--text-title);
+    /*background-color: var(--text-title);*/
+
+    transition: all 0.5s ease-in-out;
+}
+
+#github-button:hover {
+    border-color: var(--text-title);
+    rotate: -10deg;
+
+    transition: all 0.3s ease-in-out;
+}
+
+#itch-button:hover {
+    border-color: var(--text-title);
+    rotate: -3deg;
+
+    transition: all 0.5s ease-in-out;
+}
+
+#mail-button:hover {
+    border-color: var(--text-title);
+    rotate: 10deg;
+
+    transition: all 0.3s ease-in-out;
 }
 
 .social-button svg {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
+    margin: 15%;
 
-    fill: var(--bg-color);
-    color: var(--bg-color);
+    fill: var(--text-main);
 }
 
 @keyframes SlideIn {
@@ -227,11 +257,100 @@ h2 {
 }
 
 #projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+
     font-size: var(--font-large);
 }
 
+.carousel {
+    width: 100%;
+    height: 100%;
+        
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    padding-inline: calc(50% - 400px);
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-card {
+    background-color: var(--card-color);
+    box-shadow: 0px 0px 20px 5px #0000001a;
+    padding: 1rem;
+    margin: 32px;
+
+    flex: 0 0 360px;
+    height: 70vh;
+    
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    position: relative;
+}
+
+.carousel-card.active {
+  transform: scale(1.05);
+  border: 4px solid var(--text-main);
+}
+
+.carousel-arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.carousel-arrow {
+    background: rgba(34, 34, 34, 0.8);
+    border: none;
+    color: var(--text-title);
+
+    height: 48px;
+    width: 48px;
+    margin: 0 16px;
+    padding: 14px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/*#carousel-btn-left {
+    box-shadow: inset 32px 0px 24px 12px #5151511a;
+}
+
+#carousel-btn-right {
+    box-shadow: inset -32px 0px 24px 12px #5151511a;
+}*/
+
 #contact {
     font-size: var(--font-large);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .td-right {
