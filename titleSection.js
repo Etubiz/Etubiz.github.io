@@ -30,6 +30,16 @@ let timer = setInterval(() => {
     }
 }, 100);
 
+// Navigation button auto scroll
+document.getElementById("nav-link-contact").onclick = (e) => {
+    e.preventDefault();
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+};
+
+document.getElementById("nav-link-stuff").onclick = (e) => {
+    e.preventDefault();
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+};
 
 // Colored blob movement
 /*const blobs = document.querySelectorAll(".blob");
