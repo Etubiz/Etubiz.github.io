@@ -12,6 +12,12 @@
     text-align: left;
 }
 
+@media (orientation: portrait) {
+    #name-container {
+        margin: 0;
+    }
+}
+
 #name-animated {
     position: absolute;
     margin: auto;
@@ -154,7 +160,7 @@
 
 .social-button-label {
     color: var(--text-main);
-    font-size: var(--font-base);
+    font-size: var(--font-small);
 
     overflow: hidden;
     max-width: 0;

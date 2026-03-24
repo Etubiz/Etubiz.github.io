@@ -1,7 +1,7 @@
 // Page scroll snap deactivate active state on leaving snap block and activate on entering snap block
 const scrollContainer = document.querySelector(".ss-container");
 
-function toggleActive(event, shouldActivate) {
+/*function toggleActive(event, shouldActivate) {
     const snapTarget = event.snapTargetBlock;
 
     Array.from(scrollContainer.children).forEach(child => {
@@ -15,7 +15,7 @@ scrollContainer.addEventListener("scrollsnapchanging", (e) => {
 
 scrollContainer.addEventListener("scrollsnapchange", (e) => {
     toggleActive(e, true);
-});
+});*/
 
 // Keyboard navigation for scroll snap
 document.addEventListener("keydown", (e) => {
@@ -66,6 +66,8 @@ cards.forEach((c) => {
     });
 });
 
+
+
 function activateCard(currentCard) {
     if (currentCard.classList.contains("active")) return;
     
@@ -82,8 +84,6 @@ function getActiveCardIndex() {
 
 function scrollToCard(index) {
     if (index < 0 || index >= cards.length) return;
-
-    console.log("Scrolling to card index:", index);
 
     cards.forEach(c => c.classList.remove("active"));
     cards[index].classList.add("active");
@@ -123,8 +123,6 @@ let bgIndex = 0;
 function updateBackground(card) {
     const newImage = card.dataset.image;
 
-    console.log("Background update start.");
-
     // Remove active class from current background layer
     bgLayers[bgIndex].classList.remove("active");
 
@@ -138,6 +136,4 @@ function updateBackground(card) {
 
     // Activate next background layer
     nextLayer.classList.add("active");
-
-    console.log("Background updated.");
 }
