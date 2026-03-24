@@ -1,29 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Vesper+Libre:wght@400;500;700;900&display=swap');
 
-/* White */
-/*:root {
-    --bg-color: #ffffff;
-    --card-color: #f0f0f0;
-    --text-title: #000000;
-    --text-main: #333333;
-    --text-muted: #666666;
-    --font-xl: 4rem;
-    --font-large: 1.5rem;
-    --font-base: 1rem;
-}*/
-
-/* Black */
-/*:root {
-    --bg-color: #000000;
-    --card-color: #131313;
-    --text-title: #e3e2e2;
-    --text-main: #646464;
-    --text-muted: #424242;
-    --font-xl: 4rem;
-    --font-large: 1.5rem;
-    --font-base: 1rem;
-}*/
-
 /* Gray */
 :root {
     --bg-color: #1a1a1a;
@@ -38,7 +14,7 @@
     --font-small: 1rem;
 }
 
-/*@media (max-width: 600px) {
+/*@media (max-width: 768px) {
     :root {
         --font-xl: 3rem;
         --font-large: 1rem;
