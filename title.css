@@ -84,6 +84,22 @@
 }
 
 @media (orientation: portrait) {
+
+    #name-static {
+        margin: 0;
+        padding: 1rem;
+        font-size: 2rem;
+    }
+
+    #name-subtitle {
+        margin: 0;
+        padding: 1rem;
+        font-size: var(--font-medium);
+        max-width: 100%;
+        width: 100%;
+        
+    }
+
     #profile-pic {
         display: none;
     }

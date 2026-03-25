@@ -29,7 +29,17 @@
     transform: scale(1);
 
     transition: all 0.3s ease-in;
+
+    box-shadow: inset 0px 0px 40px 80px var(--bg-color);
 }
+
+/*@media (orientation: portrait) {
+    .projects-bg {
+        box-shadow: 
+            inset 0 8px 40px 80px rgba(0, 0, 0, 0.5),
+            inset 0 -8px 40px 80px rgba(0, 0, 0, 0.5);
+    }
+}*/
 
 .projects-bg.active {
     filter: blur(8px);
@@ -80,7 +90,7 @@
 @media (orientation: portrait) {
     .carousel-card {
         margin: 16px 32px 32px 16px;
-        height: clamp(600px, 85dvh, 720px);
+        height: clamp(640px, 85dvh, 720px);
     }
 }
 
@@ -88,6 +98,16 @@
     transform: scale(1.02);
     box-shadow: 0px 0px 20px 10px rgba(21, 21, 21, 0.5);
     opacity: 1;
+}
+
+.carousel-card.always-active {
+    transform: scale(1);
+    box-shadow: 0px 0px 20px 10px rgba(21, 21, 21, 0.5);
+    opacity: 1;
+}
+
+.carousel-card.always-active.active {
+    box-shadow: none;
 }
 
 .carousel-arrows {
@@ -147,41 +167,154 @@
 .carousel-content {
     color: var(--text-title);
 
-    padding: 8%;
+    padding: 36px;
     font-size: 20px;
-    text-align: justify;
+    /*text-align: justify;*/
     /*font-size: var(--font-medium);*/
     /*margin-bottom: 20px;*/
 }
 
+@media (orientation: landscape) {
+    #carousel-instruction {
+        display: none;
+    }
+}
+
+@media (orientation: portrait) {
+    #carousel-instruction {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+    }
+
+    #carousel-instruction span {
+        color: var(--text-title);
+        margin-right: 112px;
+        /*margin-right: 16px;*/
+        animation: bounce-text 3s infinite;
+    }
+
+    .carousel-instruction-arrow-one {
+        position: absolute;
+        right: 0;
+        top: -6px;
+        animation: bounce 3s infinite;
+    }
+
+    .carousel-instruction-arrow-two {
+        position: absolute;
+        right: 0;
+        top: -6px;
+        animation: bounce-fast 3s infinite;
+    }
+
+    .carousel-instruction-arrow {
+        width: 28px;
+        height: 28px;
+        border-right: 8px solid var(--text-title);
+        border-bottom: 8px solid var(--text-title);
+        border-radius: 4px;
+        transform: rotate(135deg);
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateX(0);
+            opacity: 0;
+        }
+        10% {
+            transform: translateX(-30px);
+            opacity: 0.6;
+        }
+        50% {
+            transform: translateX(-30px);
+            opacity: 0.3;
+        }
+        80% {
+            transform: translateX(-60px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(-60px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes bounce-fast {
+        0% {
+            opacity: 0;
+        }
+        5% {
+            transform: translateX(0);
+            opacity: 0;
+        }
+        30% {
+            transform: translateX(-30px);
+            opacity: 0.6;
+        }
+        50% {
+            transform: translateX(-30px);
+            opacity: 0.6;
+        }
+        80% {
+            transform: translateX(-60px);
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes bounce-text {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 0.6;
+        }
+        80% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
+.carousel-title {
+    margin: 0px 0px 0px 0px;
+    font-size: 48px;
+}
+
 .card-title {
-    margin: 0px 0px 0px 20px;
+    margin: 0px 0px 0px 0px;
     font-size: 28px;
     /*font-size: var(--font-large);*/
-    /*font-style: italic;*/
 }
 
 .card-text {
     color: var(--text-main);
     font-size: 16px;
     /*font-size: var(--font-small);*/
-    text-align: justify;
 }
 
 .card-links {
     position: absolute;
     bottom: 40px;
+    font-size: 16px;
 }
 
 .card-link {
     display: inline-flex;
     align-items: left;
     color: var(--text-main);
-    font-size: 16px;
     /*font-size: var(--font-small);*/
 
     gap: 16px;
-    margin: 8px 0 0 16px;
+    margin-bottom: 4px;
 
     transition: color 0.5s ease;
 }

@@ -58,7 +58,6 @@ document.getElementById("carousel-btn-left").onclick = () => {
     carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
 };*/
 
-
 const cards = document.querySelectorAll(".carousel-card");
 cards.forEach((c) => {
     c.addEventListener("mouseover", function() {
@@ -66,6 +65,39 @@ cards.forEach((c) => {
     });
 });
 
+
+const isPortrait = window.matchMedia("(orientation: portrait)");
+
+/*function isElementInViewportMiddle(element) {
+    const rect = element.getBoundingClientRect();
+
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+
+    const elementMiddleY = rect.top + rect.height / 2;
+    const elementMiddleX = rect.left + rect.width / 2;
+
+    const viewportMiddleY = viewportHeight / 2;
+    const viewportMiddleX = viewportWidth / 2;
+
+    // Allow some tolerance
+    const tolerance = 50;
+
+    return (
+        Math.abs(elementMiddleY - viewportMiddleY) < tolerance &&
+        Math.abs(elementMiddleX - viewportMiddleX) < tolerance
+    );
+}*/
+
+carousel.addEventListener("scrollsnapchange", function() {
+    if (!isPortrait.matches) return;
+
+    cards.forEach((c) => {
+        if (c.getBoundingClientRect().x < 64) {
+            activateCard(c);
+        }
+    });
+});
 
 
 function activateCard(currentCard) {
@@ -75,6 +107,8 @@ function activateCard(currentCard) {
         c.classList.remove("active");
     });
     currentCard.classList.add("active");
+
+    updateButtons();
     updateBackground(currentCard);
 }
 
@@ -110,6 +144,7 @@ btnRight.onclick = () => {
     scrollToCard(getActiveCardIndex() + 1);
 };
 
+updateButtons();
 function updateButtons() {
     const i = getActiveCardIndex();
 

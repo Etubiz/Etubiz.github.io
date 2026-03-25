@@ -51,12 +51,19 @@
             </div>
 
             <div class="carousel" id="carousel">
-                <div class="carousel-card">
+                <div class="carousel-card always-active">
                     <div class="carousel-content">
-                        <h3 class="card-title">Projects</h3>
+                        <h3 class="carousel-title">Projects</h3>
                         <p style="margin-top: 20px;">
                             Here are some projects I've made. They are not at all impressive, but it makes good use of this project showcase carousel.
                         </p>
+
+                        <div id="carousel-instruction">
+                            <!--<img src="images/svg/arrow-thin.svg" alt="Swipe arrow">-->
+                            <div class="carousel-instruction-arrow-one"><div class="carousel-instruction-arrow"></div></div>
+                            <div class="carousel-instruction-arrow-two"><div class="carousel-instruction-arrow"></div></div>
+                            <span>Scroll Left!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-card" data-image="images/projects/melomys-bg.png">
@@ -152,7 +159,7 @@
 
         <section id="contact">
             <div class="container">
-                <h2>About</h2>
+                <h3 class="carousel-title">About</h3>
                 <table id="contact-table">
                     <tr>
                         <td class="td-right">Who?</td>
@@ -168,33 +175,11 @@
                     </tr>
 
                     <!-- Why? How? What? When? -->
-
-
-
-                    <!--<tr>
-                        <td class="td-right">GitHub:</td>
-                        <td class="td-left"><a href="https://github.com/Etubiz" target="_blank">GitHub.com/Etubiz</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-right">Itch:</td>
-                        <td class="td-left"><a href="https://Etubi.itch.io" target="_blank">Etubi.itch.io</a></td>
-                    </tr>
-                    <tr>
-                        <td class="td-right">Email:</td>
-                        <td class="td-left"><a href="mailto:etubi.contact@gmail.com" target="_blank">Etubi.Contact@gmail.com</a></td>
-                    </tr>-->
                 </table>
             </div>
-            <!--<footer id="footer-left">
-                <p>Made with raw html, css and js</p>
-            </footer>-->
-            <footer id="footer-center">
-                <p>Made with raw html, css and js, Copyright &copy; 2026 Etubi</p>
+            <footer>
+                <p>Made with raw html, css and js, &copy; 2026 Etubi</p>
             </footer>
-            <!--<footer id="footer-right">
-                <p>Copyright &copy; 2026 Etubi</p>
-            </footer>-->
         </section>
 
         <script src="titleSection.js"></script>
