@@ -60,7 +60,7 @@ document.getElementById("carousel-btn-left").onclick = () => {
 
 const cards = document.querySelectorAll(".carousel-card");
 cards.forEach((c) => {
-    c.addEventListener("mouseover", function() {
+    c.addEventListener("mousemove", function() {
         activateCard(this);
     });
 });
@@ -89,7 +89,7 @@ const isPortrait = window.matchMedia("(orientation: portrait)");
     );
 }*/
 
-carousel.addEventListener("scrollsnapchange", function() {
+/*carousel.addEventListener("scrollsnapchange", function() {
     if (!isPortrait.matches) return;
 
     cards.forEach((c) => {
@@ -97,7 +97,22 @@ carousel.addEventListener("scrollsnapchange", function() {
             activateCard(c);
         }
     });
+});*/
+
+const observer = new IntersectionObserver((entries) => {
+    if (!isPortrait.matches) return;
+
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            activateCard(entry.target);
+        }
+    });
+}, {
+    root: carousel,
+    threshold: 0.6,
 });
+
+cards.forEach(card => observer.observe(card));
 
 
 function activateCard(currentCard) {
@@ -167,7 +182,16 @@ function updateBackground(card) {
 
     // If the new image is empty, clear the background image of the next layer
     if (!newImage) nextLayer.style.backgroundImage = `url()`;
-    else nextLayer.style.backgroundImage = `url(${newImage})`;
+    else nextLayer.style.backgroundImage = 
+        `linear-gradient(
+            to bottom,
+            var(--bg-color),
+            var(--bg-color) 4%,
+            transparent 20%,
+            transparent 80%,
+            var(--bg-color) 96%,
+            var(--bg-color)
+        ),url(${newImage})`;
 
     // Activate next background layer
     nextLayer.classList.add("active");

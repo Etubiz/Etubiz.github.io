@@ -9,8 +9,16 @@
     color: var(--text-main);
 }
 
+.contact-title {
+    font-size: 48px;
+    /*text-align: left;
+    margin-left: 2rem;
+    width: 100%;*/
+}
+
 .td-right {
     text-align: right;
+    vertical-align: top;
     padding-right: 0.5rem;
     font-weight: bold;
 }
@@ -27,7 +35,6 @@
     .td-right {
         padding: 0;
     }
-
     .td-left {
         padding: 0;
     }
