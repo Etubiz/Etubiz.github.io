@@ -1,22 +1,6 @@
 // Page scroll snap deactivate active state on leaving snap block and activate on entering snap block
 const scrollContainer = document.querySelector(".ss-container");
 
-/*function toggleActive(event, shouldActivate) {
-    const snapTarget = event.snapTargetBlock;
-
-    Array.from(scrollContainer.children).forEach(child => {
-        child.classList.toggle("active", shouldActivate);
-    });
-}
-
-scrollContainer.addEventListener("scrollsnapchanging", (e) => {
-    toggleActive(e, false);
-});
-
-scrollContainer.addEventListener("scrollsnapchange", (e) => {
-    toggleActive(e, true);
-});*/
-
 // Keyboard navigation for scroll snap
 document.addEventListener("keydown", (e) => {
 
@@ -44,8 +28,6 @@ document.addEventListener("keydown", (e) => {
 
 });
 
-
-// Carousel scroll buttons
 const carousel = document.getElementById("carousel");
 
 const cardWidth = 360 + 2 * 32; // card width + margin
@@ -68,39 +50,10 @@ cards.forEach((c) => {
 
 const isPortrait = window.matchMedia("(orientation: portrait)");
 
-/*function isElementInViewportMiddle(element) {
-    const rect = element.getBoundingClientRect();
-
-    const viewportHeight = window.innerHeight;
-    const viewportWidth = window.innerWidth;
-
-    const elementMiddleY = rect.top + rect.height / 2;
-    const elementMiddleX = rect.left + rect.width / 2;
-
-    const viewportMiddleY = viewportHeight / 2;
-    const viewportMiddleX = viewportWidth / 2;
-
-    // Allow some tolerance
-    const tolerance = 50;
-
-    return (
-        Math.abs(elementMiddleY - viewportMiddleY) < tolerance &&
-        Math.abs(elementMiddleX - viewportMiddleX) < tolerance
-    );
-}*/
-
-/*carousel.addEventListener("scrollsnapchange", function() {
-    if (!isPortrait.matches) return;
-
-    cards.forEach((c) => {
-        if (c.getBoundingClientRect().x < 64) {
-            activateCard(c);
-        }
-    });
-});*/
-
 const observer = new IntersectionObserver((entries) => {
     if (!isPortrait.matches) return;
+    // Remove scroll suggestion arrow
+    //carouselInstruction.style.display = 'none';
 
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -115,6 +68,7 @@ const observer = new IntersectionObserver((entries) => {
 cards.forEach(card => observer.observe(card));
 
 
+const carouselInstruction = document.getElementById("carousel-instruction");
 function activateCard(currentCard) {
     if (currentCard.classList.contains("active")) return;
     
@@ -159,7 +113,6 @@ btnRight.onclick = () => {
     scrollToCard(getActiveCardIndex() + 1);
 };
 
-updateButtons();
 function updateButtons() {
     const i = getActiveCardIndex();
 

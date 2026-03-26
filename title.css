@@ -15,6 +15,7 @@
 @media (orientation: portrait) {
     #name-container {
         margin: 0;
+        padding: 2rem;
     }
 }
 
@@ -87,17 +88,18 @@
 
     #name-static {
         margin: 0;
-        padding: 1rem;
-        font-size: 2rem;
+        /*padding: 1rem;*/
+        font-size: 36px;
+        font-weight: 600;
+        font-style: bold;
     }
 
     #name-subtitle {
         margin: 0;
-        padding: 1rem;
+        /*padding: 1rem;*/
         font-size: var(--font-medium);
         max-width: 100%;
         width: 100%;
-        
     }
 
     #profile-pic {
@@ -140,30 +142,17 @@
     transition: all 0.3s ease-in-out;
 }
 
-/*#github-button:hover {
-    border-color: var(--text-title);
-    rotate: -10deg;
+@media (orientation: portrait) {
 
-    transition: all 0.3s ease-in-out;
+    #social-button-container {
+        margin-top: 1.4rem;
+    }
+
+    .social-button {
+        border-color: var(--text-muted);
+        z-index: 1;
+    }
 }
-
-#itch-button:hover {
-    border-color: var(--text-title);
-    rotate: -3deg;
-
-    transition: all 0.5s ease-in-out;
-}
-
-#mail-button:hover {
-    border-color: var(--text-title);
-    rotate: 10deg;
-
-    transition: all 0.3s ease-in-out;
-}*/
-
-/*.social-button:hover {
-    border-color: var(--text-title);
-}*/
 
 .social-button svg {
     height: 1.4rem;
@@ -191,18 +180,21 @@
         margin 0.4s ease;
 }
 
-.social-button:hover .social-button-label {
-    max-width: 200px;
-    opacity: 1;
-    margin: 0 0.5rem 0 0.5rem;
+@media (orientation: landscape) {
+    .social-button:hover .social-button-label {
+        max-width: 200px;
+        opacity: 1;
+        margin: 0 0.5rem 0 0.5rem;
+    }
+
+    .social-button:focus .social-button-label,
+    .social-button:focus-visible .social-button-label {
+        max-width: 200px;
+        opacity: 1;
+        margin: 0 0.5rem 0 0.5rem;
+    }
 }
 
-.social-button:focus .social-button-label,
-.social-button:focus-visible .social-button-label {
-    max-width: 200px;
-    opacity: 1;
-    margin: 0 0.5rem 0 0.5rem;
-}
 
 /*.social-button:hover svg {
     display: none;

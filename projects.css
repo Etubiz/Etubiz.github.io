@@ -99,6 +99,12 @@
     transform: scale(1);
     box-shadow: 0px 0px 20px 10px rgba(21, 21, 21, 0.5);
     opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .carousel-card.always-active.active {
@@ -127,13 +133,16 @@
     width: 96px;
     margin: 0 32px;
 
+    opacity: 0.8;
+
     cursor: pointer;
     pointer-events: auto;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
+    transition: opacity, 0.3s ease;
 }
 
 .carousel-arrow img {
@@ -143,13 +152,25 @@
 }
 
 #carousel-btn-left:disabled {
-    opacity: 0.2;
+    opacity: 0.1;
     cursor: not-allowed;
+    transition: opacity, 0.3s ease;
 }
 
 #carousel-btn-right:disabled {
-    opacity: 0.2;
+    opacity: 0.1;
     cursor: not-allowed;
+    transition: opacity, 0.3s ease;
+}
+
+.carousel-title {
+    font-size: 48px;
+}
+
+.carousel-info {
+    text-align: left;
+    font-size: var(--font-medium);
+    color: var(--text-main);
 }
 
 
@@ -277,11 +298,6 @@
             opacity: 0;
         }
     }
-}
-
-.carousel-title {
-    margin: 0px 0px 0px 0px;
-    font-size: 48px;
 }
 
 .card-title {
