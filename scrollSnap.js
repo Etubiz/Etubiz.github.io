@@ -52,8 +52,6 @@ const isPortrait = window.matchMedia("(orientation: portrait)");
 
 const observer = new IntersectionObserver((entries) => {
     if (!isPortrait.matches) return;
-    // Remove scroll suggestion arrow
-    //carouselInstruction.style.display = 'none';
 
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -71,6 +69,9 @@ cards.forEach(card => observer.observe(card));
 const carouselInstruction = document.getElementById("carousel-instruction");
 function activateCard(currentCard) {
     if (currentCard.classList.contains("active")) return;
+    // Remove scroll suggestion arrow
+    if (isPortrait.matches && !currentCard.classList.contains("always-active"))
+        carouselInstruction.style.display = 'none';
     
     cards.forEach((c) => {
         c.classList.remove("active");
