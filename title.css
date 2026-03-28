@@ -72,7 +72,7 @@
     opacity: 0;
     /*transform: translateX(10px);*/
     transform: scale(0.96);
-    animation: ScaleIn 0.3s ease-in forwards;
+    animation: ScaleIn 0.2s ease-in forwards;
     animation-delay: 2.5s;
 }
 
@@ -86,7 +86,7 @@
 
     box-shadow: 0px 0px 20px 5px #0000001a;
 
-    animation: picScaleIn 0.5s ease-in forwards;
+    animation: picScaleIn 0.4s ease-in forwards;
     animation-delay: 2.7s;
     opacity: 0;
 }
@@ -98,8 +98,8 @@
         opacity: 0;
         box-shadow: none;
     }
-    70% {
-        transform: scale(1.02);
+    60% {
+        transform: scale(1.03);
         opacity: 1;
         box-shadow: 0px 0px 30px 10px #0000004f;
     }
@@ -158,8 +158,8 @@
     /*min-width: 2.2rem;
     min-height: 2.2rem;*/
 
-    width: 1.8rem;
-    height: 1.8rem;
+    /*width: 1.8rem;
+    height: 1.8rem;*/
     min-width: 1.8rem;
     min-height: 1.8rem;
 
@@ -167,25 +167,28 @@
     border-radius: 14px;
     background-color: var(--bg-color);
 
-    transition: all 0.3s ease-in-out;
+    transition: all 0.6s ease-in-out;
 
-    opacity: 0;
+    opacity: 1;
     transform: translateX(4px);
 }
 
 .social-button:nth-child(1) {
+    opacity: 0;
     animation: SlideIn 0.3s ease-in forwards;
-    animation-delay: 3.2s;
+    animation-delay: 3.6s;
 }
 
 .social-button:nth-child(2) {
+    opacity: 0;
     animation: SlideIn 0.3s ease-in forwards;
-    animation-delay: 3.4s;
+    animation-delay: 3.8s;
 }
 
 .social-button:nth-child(3) {
+    opacity: 0;
     animation: SlideIn 0.3s ease-in forwards;
-    animation-delay: 3.6s;
+    animation-delay: 4.0s;
 }
 
 @media (orientation: portrait) {
@@ -206,7 +209,10 @@
     margin: 0.2rem;
 
     fill: var(--text-main);
-    transition: all 0.3s ease-in-out;
+    transition: 
+        width 0.6s ease-in-out, 
+        height 0.6s ease-in-out, 
+        margin 0.2s ease-in-out;
 }
 
 .social-button-label {
@@ -224,21 +230,44 @@
         max-width 0.6s ease,
         opacity 0.4s ease,
         margin 0.4s ease;
+
 }
 
 @media (orientation: landscape) {
+
+    .social-button:hover {
+        margin-inline: -0.5rem;
+        transition: all 0.4s ease-in-out;
+    }
+
     .social-button:hover .social-button-label {
         max-width: 200px;
         opacity: 1;
-        margin: 0 0.5rem 0 0.5rem;
+        margin-inline: 1.4rem;
     }
 
     .social-button:focus .social-button-label,
     .social-button:focus-visible .social-button-label {
         max-width: 200px;
         opacity: 1;
-        margin: 0 0.5rem 0 0.5rem;
+        margin-inline: 1.4rem;
     }
+
+    .social-button:hover svg {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+
+    .social-button:focus svg,
+    .social-button:focus-visible svg {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin: 0;
+    }
+    
 }
 
 

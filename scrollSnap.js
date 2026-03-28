@@ -45,6 +45,10 @@ cards.forEach((c) => {
     c.addEventListener("mousemove", function() {
         activateCard(this);
     });
+    c.addEventListener("click", function() {
+        activateCard(this);
+        scrollToCard(getActiveCardIndex());
+    });
 });
 
 

@@ -41,6 +41,25 @@ document.getElementById("nav-link-stuff").onclick = (e) => {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 };
 
+// Local time update
+function updateClock() {
+  const now = new Date();
+
+  const time = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Amsterdam",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  }).format(now);
+
+  document.getElementById("local-time").textContent = " Local time " + time + ".";
+}
+
+// run immediately and update every second
+updateClock();
+setInterval(updateClock, 1000);
+
 // Colored blob movement
 /*const blobs = document.querySelectorAll(".blob");
 
