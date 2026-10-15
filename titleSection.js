@@ -41,6 +41,24 @@ document.getElementById("nav-link-stuff").onclick = (e) => {
     document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 };
 
+// Age update
+function updateAge() {
+  const birthDate = new Date("2006-11-26");
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  document.getElementById("my-age").textContent = age;
+}
+
+// Call updateAge immediately and then set an interval to update it daily
+updateAge();
+setInterval(updateAge, 1000 * 60 * 60 * 24); // Update age every day
+
 // Local time update
 function updateClock() {
   const now = new Date();

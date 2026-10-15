@@ -44,14 +44,14 @@
             <img id="profile-pic" src="images/profile-pic.png" alt="Profile Picture">
         </section>
 
-        <section id="projects">
+        <section id="projects" style="background-color: var(--bg-color);">
             <div id="background-images">
                 <div class="projects-bg active"></div>
                 <div class="projects-bg"></div>
             </div>
 
             <div class="carousel" id="carousel">
-                <div class="carousel-card always-active active">
+                <div class="carousel-card always-active active"> <!-- class = always-active  -->
                     <div class="container">
                         <h3 class="carousel-title">Projects</h3>
                         <p class="carousel-info">
@@ -71,8 +71,7 @@
                         <h3 class="card-title">Melomys</h3>
                         <p class="card-text">
                             A precision platforming metroidvania that follows a young rat trying 
-                            to make sense of the unknown and unforgiving world. This is probably 
-                            the only game I have finished.<br>
+                            to make sense of the unknown and unforgiving world.
                             <!--This game was made in a 2-week game jam in a team of four.-->
                         </p>
                         <div class="card-links">
@@ -97,7 +96,7 @@
                         </p>
                         <div class="card-links">
                             <div class="card-link">
-                                <img src="images/svg/calendar.svg" alt="Calendar" class="card-link-icon"> November 2023 (2 week Game Jam)
+                                <img src="images/svg/calendar.svg" alt="Calendar" class="card-link-icon"> Nov. 2023 (2 week Game Jam)
                             </div>
                             <div class="card-link">
                                 <img src="images/svg/code.svg" alt="Code" class="card-link-icon"> Gamemaker Studio 2
@@ -162,7 +161,7 @@
                 <table id="contact-table">
                     <tr>
                         <td class="td-right">Who?</td>
-                        <td class="td-left">I am a 19 years-old Computer Science student from Lithuania.</td>
+                        <td class="td-left">I am a <span id="my-age"></span> years-old Computer Science student from Lithuania.</td>
                     </tr>
                     <tr>
                         <td class="td-right">Where?</td>
@@ -170,14 +169,14 @@
                     </tr>
                     <tr>
                         <td class="td-right">Why?</td>
-                        <td class="td-left">I enjoy creating weirdly beautiful and unforgettable things.</td>
+                        <td class="td-left">I enjoy creating peculiar things with high attention to detail.</td>
                     </tr>
 
                     <!-- Why? How? What? When? -->
                 </table>
             </div>
             <footer>
-                <p>Made with raw html, css and js, &copy; 2026 Etubi</p>
+                <p>&copy; 2026 Etubi</p>
             </footer>
         </section>
 

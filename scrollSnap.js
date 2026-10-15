@@ -139,17 +139,33 @@ function updateBackground(card) {
     const nextLayer = bgLayers[bgIndex];
 
     // If the new image is empty, clear the background image of the next layer
+    
     if (!newImage) nextLayer.style.backgroundImage = `url()`;
     else nextLayer.style.backgroundImage = 
         `linear-gradient(
             to bottom,
             var(--bg-color),
             var(--bg-color) 4%,
-            transparent 20%,
-            transparent 80%,
+            transparent 10%,
+            transparent 90%,
             var(--bg-color) 96%,
             var(--bg-color)
         ),url(${newImage})`;
+
+    // if (!newImage) nextLayer.style.backgroundImage = `url()`;
+    // else nextLayer.style.backgroundImage = 
+    //     `linear-gradient(
+    //         to bottom,
+    //         var(--bg-color),
+    //         var(--bg-color) 4%,
+    //         transparent 20%,
+    //         transparent 80%,
+    //         var(--bg-color) 96%,
+    //         var(--bg-color)
+    //     ),url(${newImage})`;
+
+    // if (!newImage) nextLayer.style.backgroundImage = `url()`;
+    // else nextLayer.style.backgroundImage = `url(${newImage})`;
 
     // Activate next background layer
     nextLayer.classList.add("active");
